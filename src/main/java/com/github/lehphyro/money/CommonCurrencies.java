@@ -1,7 +1,15 @@
 package com.github.lehphyro.money;
 
 public enum CommonCurrencies implements Currency {
-  EURO("Euro", "EUR", "€");
+  BRL("Brazilian Real", "BRL", "R$"),
+  CAD("Canadian Dollar", "CAD", "C$"),
+  CHF("Swiss Franc", "CHF", "CHf"),
+  DKK("Danish Krone", "DKK", "Kr."),
+  EUR("Euro", "EUR", "€"),
+  GBP("British Pound", "GBP", "£"),
+  NOK("Norwegian Kroner", "NOK", "kr"),
+  SEK("Swedish Krona", "SEK", "kr"),
+  USD("US Dollar", "USD", "$");
 
   private final String name;
   private final String code;
