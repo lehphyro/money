@@ -59,8 +59,10 @@ public class MoneyTest {
   @Test
   public void testDivide() {
     Money m1 = Money.of(1, 0, EURO);
-    assertEquals(2, m1.divide(2).size());
-    assertEquals(Money.of(0, 50, EURO), m1.divide(2).get(0));
+    assertEquals(ImmutableList.of(Money.of(0, 50, EURO), Money.of(0, 50, EURO)), m1.divide(2));
+
+    m1 = Money.of(100, 0, EURO);
+    assertEquals(ImmutableList.of(Money.of(33, 34, EURO), Money.of(33, 33, EURO), Money.of(33, 33, EURO)), m1.divide(3));
   }
 
   @Test

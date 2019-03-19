@@ -53,10 +53,6 @@ public final class Money implements Serializable, Comparable<Money> {
     return new Money(total, currencies.iterator().next());
   }
 
-  static Money of(long amount, Currency currency) {
-    return new Money(amount, currency);
-  }
-
   private void checkSameCurrency(Currency other) {
     checkArgument(currency.equals(other), "Currencies must be the same, received: %s", other);
   }
@@ -137,16 +133,8 @@ public final class Money implements Serializable, Comparable<Money> {
     return amount > 0;
   }
 
-  public boolean isPositiveOrZero() {
-    return amount >= 0;
-  }
-
   public boolean isNegative() {
     return amount < 0;
-  }
-
-  public boolean isNegativeOrZero() {
-    return amount <= 0;
   }
 
   public double percentageOf(Money arg) {
