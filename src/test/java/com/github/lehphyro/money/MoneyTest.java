@@ -8,6 +8,7 @@ import org.junit.Test;
 
 import static com.github.lehphyro.money.CommonCurrencies.EUR;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class MoneyTest {
 
@@ -83,5 +84,21 @@ public class MoneyTest {
     assertEquals(0.1, money.percentageOf(Money.of(10, 0, EUR)), 0.0001);
     money = Money.of(774, 27, EUR);
     assertEquals(0.0042, money.percentageOf(Money.of(182737, 9, EUR)), 0.0001);
+  }
+
+  @Test
+  public void testIsZero() {
+    assertTrue(Money.of(0, 0, EUR).isZero());
+  }
+
+  @Test
+  public void testIsPositive() {
+    assertTrue(Money.of(0, 1, EUR).isPositive());
+  }
+
+  @Test
+  public void testIsNegative() {
+    assertTrue(Money.of(-1, 0, EUR).isNegative());
+    assertTrue(Money.of(0, 10, EUR).minus(Money.of(0, 11, EUR)).isNegative());
   }
 }
