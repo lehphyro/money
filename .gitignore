@@ -1,6 +1,7 @@
 .classpath
-.settings/*
+.settings
 .project
 pom.xml.releaseBackup
 release.properties
 target
+.idea
