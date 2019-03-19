@@ -1,5 +1,7 @@
 package com.github.lehphyro.money;
 
+import java.util.stream.Stream;
+
 public enum CommonCurrencies implements Currency {
   BRL("Brazilian Real", "BRL", "R$"),
   CAD("Canadian Dollar", "CAD", "C$"),
@@ -19,6 +21,13 @@ public enum CommonCurrencies implements Currency {
     this.name = name;
     this.code = code;
     this.symbol = symbol;
+  }
+
+  public static CommonCurrencies valueOfCode(String code) {
+    return Stream.of(values())
+        .filter(v -> v.code.equals(code))
+        .findFirst()
+        .orElseThrow(() -> new IllegalArgumentException("Unknown currency code: " + code));
   }
 
   @Override
